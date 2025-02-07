@@ -1,0 +1,42 @@
+{
+    "apiVersion": 2,
+    "name": "toc/block",
+    "title": "Table of Contents",
+    "category": "common",
+    "icon": "list-view",
+    "description": "A Table of Contents block for your posts.",
+    "supports": {
+        "anchor": true,
+        "reusable": true,
+        "html": false
+    },
+    "attributes": {
+        "headings": {
+            "type": "array",
+            "default": []
+        },
+        "showNumbers": {
+            "type": "boolean",
+            "default": false
+        },
+        "collapsible": {
+            "type": "boolean",
+            "default": false
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "start"
+        },
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "number"
+		}
+    },
+   "editorScript": "file:./build/editor.js",
+    "style": "file:./build/frontend.js"
+}
