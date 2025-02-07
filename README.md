@@ -1,6 +1,6 @@
 # TOC Gutenberg Block
 
-**Contributors:** [Maria Zebroff](https://github.com/your-github-username)  
+**Contributors:** [Maria Zebroff](https://github.com/MariaZebroff)  
 **Tags:** table of contents, Gutenberg, block  
 **Requires at least:** 5.8  
 **Tested up to:** 6.7  
