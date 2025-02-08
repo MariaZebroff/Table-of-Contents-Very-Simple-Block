@@ -10,7 +10,6 @@
  * Text Domain: toc-block
  */
 
-
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
@@ -67,7 +66,7 @@ function toc_shortcode($atts) {
     $headings = array();
     foreach ($matches as $match) {
         $level = 'h' . $match[1];
-        $text = wp_strip_all_tags($match[2]); // Get heading text
+        $text = strip_tags($match[2]); // Get heading text
         $id = sanitize_title($text); // Generate ID from text
 
         // Store heading data
@@ -77,13 +76,15 @@ function toc_shortcode($atts) {
             'id'    => $id,
         );
     }
-
+$showNum = $atts['showNumbers']? 'true' : 'false';
     // Combine attributes and headings into a single array
     $attributes = array(
-        'showNumbers' => $atts['showNumbers'],
+        'showNumbers' => $showNum,
         'collapsible' => $atts['collapsible'],
         'headings'    => $headings,
     );
+// echo "LLLLLLLLL";
+//     var_dump($attributes);
 
     // JSON encode the attributes to pass to the frontend
     $attributes_json = json_encode($attributes);
