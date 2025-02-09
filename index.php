@@ -69,6 +69,12 @@ function toc_shortcode($atts) {
         $text = strip_tags($match[2]); // Get heading text
         $id = sanitize_title($text); // Generate ID from text
 
+        if (substr($text, -1) === '?') {
+            $id .= '?';
+        }else if (substr($text, -1) === '!'){
+            $id .= '!';
+        }
+
         // Store heading data
         $headings[] = array(
             'level' => $level,
