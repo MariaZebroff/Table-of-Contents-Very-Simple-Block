@@ -42,7 +42,7 @@ class TocBlock {
 $TocBlock = new TocBlock();
 
 
-// [toc showNumbers="true" collapsible="true"]
+// [toc shownumbers="true" collapsible="true"]
 // [toc]
 function toc_shortcode($atts) {
     global $post;
@@ -54,11 +54,17 @@ function toc_shortcode($atts) {
     // Set default values for attributes
     $atts = shortcode_atts(
         array(
-            'showNumbers' => false,   // Default value for showNumbers
+            'shownumbers' => false,   // Default value for showNumbers
             'collapsible' => false,    // Default value for collapsible
         ),
         $atts, 'toc'  // 'toc' is the name of the shortcode
     );
+
+    var_dump($atts);
+    $atts['shownumbers'] = filter_var($atts['shownumbers'], FILTER_VALIDATE_BOOLEAN);
+    $atts['collapsible'] = filter_var($atts['collapsible'], FILTER_VALIDATE_BOOLEAN);
+
+
 
     // Extract headings (h1 - h6) from post content
     preg_match_all('/<h([1-6])[^>]*>(.*?)<\/h[1-6]>/', $post->post_content, $matches, PREG_SET_ORDER);
@@ -82,15 +88,16 @@ function toc_shortcode($atts) {
             'id'    => $id,
         );
     }
-$showNum = $atts['showNumbers']? 'true' : 'false';
+
     // Combine attributes and headings into a single array
     $attributes = array(
-        'showNumbers' => $showNum,
+        'showNumbers' => $atts['shownumbers'],
         'collapsible' => $atts['collapsible'],
         'headings'    => $headings,
     );
 // echo "LLLLLLLLL";
-//     var_dump($attributes);
+    //var_dump($attributes);
+    //var_dump($atts);
 
     // JSON encode the attributes to pass to the frontend
     $attributes_json = json_encode($attributes);
