@@ -60,7 +60,7 @@ function toc_shortcode($atts) {
         $atts, 'toc'  // 'toc' is the name of the shortcode
     );
 
-    var_dump($atts);
+    //var_dump($atts);
     $atts['shownumbers'] = filter_var($atts['shownumbers'], FILTER_VALIDATE_BOOLEAN);
     $atts['collapsible'] = filter_var($atts['collapsible'], FILTER_VALIDATE_BOOLEAN);
 
