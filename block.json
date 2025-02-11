@@ -30,7 +30,13 @@
 		"backgroundColor": {
 			"type": "string"
 		},
-		"textColor": {
+		"color": {
+			"type": "string"
+		},
+        "backgroundListColor": {
+			"type": "string"
+		},
+		"colorList": {
 			"type": "string"
 		},
 		"fontSize": {
